@@ -1,5 +1,6 @@
 package com.darren.optimize.plugin
 
+import com.android.build.gradle.AppExtension
 import com.darren.optimize.TinkerPatchParams
 import org.gradle.api.Plugin
 import org.gradle.api.Project
@@ -15,6 +16,9 @@ class ImageMonitorPlugin implements Plugin<Project> {
         TinkerPatchParams tinkerPatchParams = project.extensions.create(EXT_NAME, TinkerPatchParams)
         //TinkerPatchParams.class ----> com.darren.optimize.TinkerPatchParams_Decorated@5f4a25f6
         println "Hello Plugin oldApk : " + tinkerPatchParams.oldApk
-        // 这里怎么写？
+
+        // asm作用: 修改字节码
+        AppExtension appExtension = project.extensions.getByType(AppExtension.class)
+        appExtension.registerTransform(new ImageMonitorTransform())
     }
 }

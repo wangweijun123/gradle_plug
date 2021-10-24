@@ -3,6 +3,7 @@ package com.darren.optimize.day01;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -19,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         int num1 = 100;
         int num2 = 200;
         int sum = add(num1, num2);
-        System.out.println("sum = "+sum);
+        Log.e("wangweijun", "sum = "+sum);
     }
 
     public int add(int a, int b){
